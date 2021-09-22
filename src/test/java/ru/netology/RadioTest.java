@@ -51,18 +51,13 @@ class RadioTest {
         radio.increaseRadioStation();
         assertEquals(9, radio.getCurrentRadioStation());
 
-        radio.setNumberRadioStation(-1);
-        assertEquals(10, radio.getNumberRadioStation());
-        radio.setNumberRadioStation(0);
-        assertEquals(10, radio.getNumberRadioStation());
 
-        radio.setNumberRadioStation(20);
-        assertEquals(20, radio.getNumberRadioStation());
-        radio.setMaxRadioStation();
-        assertEquals(19, radio.getMaxRadioStation());
-        radio.setCurrentRadioStation(15);
-        radio.increaseRadioStation();
-        assertEquals(16, radio.getCurrentRadioStation());
+        Radio radioSetNumber = new Radio(20);
+        radioSetNumber.setMaxRadioStation();
+        assertEquals(19, radioSetNumber.getMaxRadioStation());
+        radioSetNumber.setCurrentRadioStation(15);
+        radioSetNumber.increaseRadioStation();
+        assertEquals(16, radioSetNumber.getCurrentRadioStation());
 
 
     }
@@ -73,12 +68,11 @@ class RadioTest {
         radio.increaseRadioStation();
         assertEquals(0, radio.getCurrentRadioStation());
 
-        radio.setNumberRadioStation(15);
-        radio.setMaxRadioStation();
-        radio.setCurrentRadioStation(14);
-        radio.increaseRadioStation();
-        assertEquals(0, radio.getCurrentRadioStation());
-
+        Radio radioSetNumber = new Radio(15);
+        radioSetNumber.setMaxRadioStation();
+        radioSetNumber.setCurrentRadioStation(14);
+        radioSetNumber.increaseRadioStation();
+        assertEquals(0, radioSetNumber.getCurrentRadioStation());
     }
 
     @Test
@@ -90,11 +84,11 @@ class RadioTest {
         radio.decreaseRadioStation();
         assertEquals(8, radio.getCurrentRadioStation());
 
-        radio.setNumberRadioStation(25);
-        radio.setMaxRadioStation();
-        radio.setCurrentRadioStation(24);
-        radio.decreaseRadioStation();
-        assertEquals(23, radio.getCurrentRadioStation());
+        Radio radioSetNumber = new Radio(25);
+        radioSetNumber.setMaxRadioStation();
+        radioSetNumber.setCurrentRadioStation(24);
+        radioSetNumber.decreaseRadioStation();
+        assertEquals(23, radioSetNumber.getCurrentRadioStation());
     }
 
     @Test
@@ -103,11 +97,11 @@ class RadioTest {
         radio.decreaseRadioStation();
         assertEquals(9, radio.getCurrentRadioStation());
 
-        radio.setNumberRadioStation(30);
-        radio.setMaxRadioStation();
-        radio.setCurrentRadioStation(0);
-        radio.decreaseRadioStation();
-        assertEquals(29, radio.getCurrentRadioStation());
+        Radio radioSetNumber = new Radio(30);
+        radioSetNumber.setMaxRadioStation();
+        radioSetNumber.setCurrentRadioStation(0);
+        radioSetNumber.decreaseRadioStation();
+        assertEquals(29, radioSetNumber.getCurrentRadioStation());
 
     }
 
@@ -118,12 +112,12 @@ class RadioTest {
         radio.setCurrentRadioStation(-1);
         assertEquals(0, radio.getCurrentRadioStation());
 
-        radio.setNumberRadioStation(5);
-        radio.setMaxRadioStation();
-        radio.setCurrentRadioStation(8);
-        assertEquals(0, radio.getCurrentRadioStation());
-        radio.setCurrentRadioStation(-1);
-        assertEquals(0, radio.getCurrentRadioStation());
+        Radio radioSetNumber = new Radio(5);
+        radioSetNumber.setMaxRadioStation();
+        radioSetNumber.setCurrentRadioStation(8);
+        assertEquals(0, radioSetNumber.getCurrentRadioStation());
+        radioSetNumber.setCurrentRadioStation(-1);
+        assertEquals(0, radioSetNumber.getCurrentRadioStation());
 
     }
 }
