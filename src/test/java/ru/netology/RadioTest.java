@@ -51,7 +51,7 @@ class RadioTest {
 
     @Test
     void shouldSetNumberAndIncreaseRadioStation() {
-        Radio radioSetNumber = new Radio(20, 19);
+        Radio radioSetNumber = new Radio(20);
         radioSetNumber.setCurrentRadioStation(15);
         radioSetNumber.increaseRadioStation();
         assertEquals(16, radioSetNumber.getCurrentRadioStation());
@@ -66,7 +66,7 @@ class RadioTest {
 
     @Test
     void shouldSetNumberAndBeMaxRadioStation() {
-        Radio radioSetNumber = new Radio(15, 14);
+        Radio radioSetNumber = new Radio(15);
         radioSetNumber.setCurrentRadioStation(14);
         radioSetNumber.increaseRadioStation();
         assertEquals(0, radioSetNumber.getCurrentRadioStation());
@@ -84,7 +84,7 @@ class RadioTest {
 
     @Test
     void shouldSetNumberAndDecreaseRadioStation() {
-        Radio radioSetNumber = new Radio(25, 24);
+        Radio radioSetNumber = new Radio(25);
         radioSetNumber.setCurrentRadioStation(24);
         radioSetNumber.decreaseRadioStation();
         assertEquals(23, radioSetNumber.getCurrentRadioStation());
@@ -100,7 +100,7 @@ class RadioTest {
 
     @Test
     void shouldSetNumberAndBeMinRadioStation() {
-        Radio radioSetNumber = new Radio(30, 29);
+        Radio radioSetNumber = new Radio(30);
         radioSetNumber.setCurrentRadioStation(0);
         radioSetNumber.decreaseRadioStation();
         assertEquals(29, radioSetNumber.getCurrentRadioStation());
@@ -116,7 +116,7 @@ class RadioTest {
 
     @Test
     void shouldSetNumberAndNotBeMoreMaxAndMinMinRadioStation() {
-        Radio radioSetNumber = new Radio(5, 4);
+        Radio radioSetNumber = new Radio(5);
         radioSetNumber.setCurrentRadioStation(8);
         assertEquals(0, radioSetNumber.getCurrentRadioStation());
         radioSetNumber.setCurrentRadioStation(-1);
