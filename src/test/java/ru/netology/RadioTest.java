@@ -1,9 +1,6 @@
 package ru.netology;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
@@ -50,16 +47,14 @@ class RadioTest {
         radio.setCurrentRadioStation(8);
         radio.increaseRadioStation();
         assertEquals(9, radio.getCurrentRadioStation());
+    }
 
-
-        Radio radioSetNumber = new Radio(20);
-        radioSetNumber.setMaxRadioStation();
-        assertEquals(19, radioSetNumber.getMaxRadioStation());
+    @Test
+    void shouldSetNumberAndIncreaseRadioStation() {
+        Radio radioSetNumber = new Radio(20, 19);
         radioSetNumber.setCurrentRadioStation(15);
         radioSetNumber.increaseRadioStation();
         assertEquals(16, radioSetNumber.getCurrentRadioStation());
-
-
     }
 
     @Test
@@ -67,9 +62,11 @@ class RadioTest {
         radio.setCurrentRadioStation(9);
         radio.increaseRadioStation();
         assertEquals(0, radio.getCurrentRadioStation());
+    }
 
-        Radio radioSetNumber = new Radio(15);
-        radioSetNumber.setMaxRadioStation();
+    @Test
+    void shouldSetNumberAndBeMaxRadioStation() {
+        Radio radioSetNumber = new Radio(15, 14);
         radioSetNumber.setCurrentRadioStation(14);
         radioSetNumber.increaseRadioStation();
         assertEquals(0, radioSetNumber.getCurrentRadioStation());
@@ -83,26 +80,30 @@ class RadioTest {
         radio.setCurrentRadioStation(9);
         radio.decreaseRadioStation();
         assertEquals(8, radio.getCurrentRadioStation());
+    }
 
-        Radio radioSetNumber = new Radio(25);
-        radioSetNumber.setMaxRadioStation();
+    @Test
+    void shouldSetNumberAndDecreaseRadioStation() {
+        Radio radioSetNumber = new Radio(25, 24);
         radioSetNumber.setCurrentRadioStation(24);
         radioSetNumber.decreaseRadioStation();
         assertEquals(23, radioSetNumber.getCurrentRadioStation());
     }
+
 
     @Test
     void shouldBeMinRadioStation() {
         radio.setCurrentRadioStation(0);
         radio.decreaseRadioStation();
         assertEquals(9, radio.getCurrentRadioStation());
+    }
 
-        Radio radioSetNumber = new Radio(30);
-        radioSetNumber.setMaxRadioStation();
+    @Test
+    void shouldSetNumberAndBeMinRadioStation() {
+        Radio radioSetNumber = new Radio(30, 29);
         radioSetNumber.setCurrentRadioStation(0);
         radioSetNumber.decreaseRadioStation();
         assertEquals(29, radioSetNumber.getCurrentRadioStation());
-
     }
 
     @Test
@@ -111,13 +112,14 @@ class RadioTest {
         assertEquals(0, radio.getCurrentRadioStation());
         radio.setCurrentRadioStation(-1);
         assertEquals(0, radio.getCurrentRadioStation());
+    }
 
-        Radio radioSetNumber = new Radio(5);
-        radioSetNumber.setMaxRadioStation();
+    @Test
+    void shouldSetNumberAndNotBeMoreMaxAndMinMinRadioStation() {
+        Radio radioSetNumber = new Radio(5, 4);
         radioSetNumber.setCurrentRadioStation(8);
         assertEquals(0, radioSetNumber.getCurrentRadioStation());
         radioSetNumber.setCurrentRadioStation(-1);
         assertEquals(0, radioSetNumber.getCurrentRadioStation());
-
     }
 }
